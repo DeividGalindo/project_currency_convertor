@@ -12,4 +12,14 @@ document.getElementById('currency-form').addEventListener('submit', function(eve
         BRL: {USD:0.17, EUR:0.15},
         EUR: {USD:1.13, BRL:6.50}
     };
+
+    let valorConvertido;
+    if(daMoeda === paraMoeda){
+        valorConvertido = valor;
+    }else{
+        valorConvertido = valor * exchangeRates[daMoeda][paraMoeda];
+    }
+
+    const conversao = document.getElementById('conversao');
+    conversao.textContent = `Resultado: ${valorConvertido} ${paraMoeda}`;
 });
